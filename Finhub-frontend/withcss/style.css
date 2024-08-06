@@ -1,0 +1,94 @@
+body{
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+form{
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    border-radius: 30px;
+    width: 300px;
+    height: 400px;
+    background-color: aquamarine;
+    align-content: center;
+    text-align: center;
+
+    h1{
+        padding: 30px;
+        margin: 0 0 30px 0;
+    }
+    .input-fields{
+        justify-content: space-between;
+
+        
+        .name{
+            padding: 0 0 40px 0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 16px;
+
+            #name{
+                border: none;
+                border-bottom: 2px solid beige;
+                background-color: aquamarine;
+                color: black;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: 12px;
+                outline: none;
+
+                :focus{
+                    border: none;
+                    outline: none;
+
+                }
+            }
+
+        }
+        .password{
+            padding: 0 0 40px 0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 16px;
+
+            #password{
+                border: none;
+                border-bottom: 2px solid beige;
+                background-color: aquamarine;
+                color: black;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: 12px;
+                outline: none;
+
+                :focus{
+                    border: none;
+                    outline: none;
+                }
+            }
+
+        }
+        p{
+            text-align: right;
+            justify-content: right;
+            padding: 0 30px 0 0;
+            margin-top: -25px;
+            
+        }
+        
+    }
+    button{
+        background-color: rgb(250, 2, 85);
+        font-size: 16px;
+        padding: 2px 10px 2px 10px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        color: aliceblue;
+        font-weight: bold;
+        margin-top: 30px;
+        cursor: pointer;
+
+       
+    }
+    button:hover{
+        font-size: 20px;
+     }
+}
