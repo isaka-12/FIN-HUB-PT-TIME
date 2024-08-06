@@ -52,6 +52,11 @@ for(let i =1;i<101;i++){
     }
 }
 //alternatively
-for(let i =2;i<101;i+2){
-     console.log(i +" is Even")   
+let i
+while (i<101) {
+    if(i%2==0){
+        console.log(i +" is Even")
+    }
+    i++
+    
 }
