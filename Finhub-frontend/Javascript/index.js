@@ -46,17 +46,43 @@ console.log(4*6)
 // }
 
 //printing even numbers
-for(let i =1;i<101;i++){
-    if(i%2==0){
-        console.log(i +" is Even")
-    }
-}
+// for(let i =1;i<101;i++){
+//     if(i%2==0){
+//         console.log(i +" is Even")
+//     }
+// }
 //alternatively
-let i
-while (i<101) {
-    if(i%2==0){
-        console.log(i +" is Even")
+// let i
+// while (i<101) {
+//     if(i%2==0){
+//         console.log(i +" is Even")
+//     }
+//     i++
+    
+// }
+
+//conditional statements
+// var num = 12
+// if(num>10){
+//     console.log("it is greater")
+// }
+// else{
+//     console.log("not greater")
+// }
+
+//fizzbuzz
+for (let i = 1; i <= 100; i++) {
+    if (i%3===0 && i%5===0) {
+        console.log("FizzBuzz")
+    } 
+    else if(i%3 === 0){
+        console.log("Fizz")
     }
-    i++
+    else if(i%5 === 0){
+        console.log("Buzz")
+    }
+    else{
+        console.log(i)
+    }
     
 }
