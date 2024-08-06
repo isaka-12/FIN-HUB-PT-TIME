@@ -30,6 +30,9 @@ console.log(myUser.Status)
 console.log(myUser.Paid)
 
 //operation
+//==checks value only
+//===checks value and data type
+//!= not equal to for value only
 console.log(4*6)
 
 
@@ -38,7 +41,6 @@ console.log(4*6)
 
 //for loop
 //for(start;stop;step)
-for (let index = 0; index < 40; index++) {
-    console.log(index)
-    
-}
+// for (let index = 0; index < 40; index++) {
+//     console.log(index) 
+// }
