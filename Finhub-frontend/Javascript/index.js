@@ -33,3 +33,12 @@ console.log(myUser.Paid)
 console.log(4*6)
 
 
+//loops
+//for-loop and while loop
+
+//for loop
+//for(start;stop;step)
+for (let index = 0; index < 40; index++) {
+    console.log(index)
+    
+}
