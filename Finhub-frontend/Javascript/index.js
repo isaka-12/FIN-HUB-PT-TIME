@@ -44,3 +44,14 @@ console.log(4*6)
 // for (let index = 0; index < 40; index++) {
 //     console.log(index) 
 // }
+
+//printing even numbers
+for(let i =1;i<101;i++){
+    if(i%2==0){
+        console.log(i +" is Even")
+    }
+}
+//alternatively
+for(let i =2;i<101;i+2){
+     console.log(i +" is Even")   
+}
