@@ -1,7 +1,7 @@
 <script setup>
     import {ref} from "vue";
     
-    var taskinput = ref('');
+    var taskInput = ref('');
 
     var itemsArray =ref([]);
 
@@ -14,31 +14,30 @@
     //  console.log(taskinput.value);
     var itemToEdit =ref(null);
 
-     function saveItem() {
+    function saveItem(){
+        // console.log(itemsArray.value);
+        // console.log(taskInput.value);
+        console.log('itemToEdit');
+        console.log(itemToEdit.value);
         
-        
-        console.log(itemToEdit.value)
-
         if (itemToEdit.value !== null) {
-            itemsArray.value[itemToEdit.value]=taskinput.value
-            itemToEdit.value = null
+            itemsArray.value[itemToEdit.value] = taskInput.value;
+            itemToEdit.value = null;
         } else {
-            itemsArray.value.push(taskinput.value)
-            
+            itemsArray.value.push(taskInput.value);
         }
-        taskinput.value = '';
-      console.log(itemsArray.value)
+        taskInput.value = '';
 
-      
-     }
-
+        // console.log(itemsArray.value);
+    
+    }
      function deleteItem(index){
         itemsArray.value.splice(index,1)
      }
      
 
      function editItem(index){
-        taskinput.value = itemsArray.value[index]
+        taskInput.value = itemsArray.value[index]
         itemToEdit.value = index
      }
     
@@ -50,7 +49,7 @@
             <h1>To Do App</h1>
             <form action="" @submit.prevent="saveItem" id="input-form">   
 
-                    <input v-model=taskinput type="text" id="input"  name="input" placeholder="Enter a task">
+                    <input v-model=taskInput type="text" id="input"  name="input" placeholder="Enter a task">
                     <button  type="submit" id="submit"><i class="fa-solid fa-plus"></i></button>
                  
             </form>
@@ -62,8 +61,8 @@
                         <p class="to-do-list-item-title">{{ item }}</p>
                     </div>
                     <div>
-                        <button id="edit" class="icon edit" v-on:click="editItem[index]"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button id="delete" class="icon delete" v-on:click="deleteItem[index]"><i class="fa-solid fa-trash"></i></button>
+                        <button id="edit" class="icon edit" v-on:click="(editItem(index))"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button id="delete" class="icon delete" v-on:click="(deleteItem(index))"><i class="fa-solid fa-trash"></i></button>
                     </div>
                </div>
             </div>
@@ -156,5 +155,9 @@ h1{
     background-color: transparent;
     font-size: 24px;
     padding: 10px;
+    &:hover{
+        color: #fe2104;
+        border-radius: 5px;
+    }
 }
 </style>
