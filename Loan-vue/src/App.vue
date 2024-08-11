@@ -15,7 +15,7 @@ function calculate(){
 </script>
 
 <template>
-  <div class="body">
+  <body class="body">
     <div class="container">
             <h1>Loan Calculator</h1>
             <div class="content-container">
@@ -38,15 +38,17 @@ function calculate(){
             </div>
         </div>
 
-  </div>
+  </body>
 </template>
   
 <style >
 *{
     margin: 0;
     padding: 0;
+    
 }
-.body{
+body{
+    
     width: 100vw;
     height: 100vh;
     background-color:rgba(241, 241, 241, 1);
