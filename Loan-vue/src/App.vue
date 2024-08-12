@@ -6,9 +6,9 @@ var time = ref();
 var result = ref();
 
 function calculate(){
-    var p = principal.value;
-    var r = rate.value;
-    var t = time.value;
+    var p = parseFloat(principal.value);
+    var r = parseFloat(rate.value);
+    var t = parseFloat(time.value);
     var interest = (p * r * t) / 100;
     result.value = interest;
 }
@@ -70,6 +70,7 @@ h1{
     height: 90vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
     border-radius: 26px;
 }
