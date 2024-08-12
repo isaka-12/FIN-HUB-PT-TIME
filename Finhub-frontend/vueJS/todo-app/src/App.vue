@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 import ListItem from "./components/ListItem.vue";
 import ListItemCard from "./components/ListItemCard.vue";
 
@@ -10,6 +10,25 @@ var taskInput = ref('');
 var itemsArray = ref([
 ]);
 
+async function getItems() {
+    const response = await fetch('http://localhost:5001/items')
+    itemsArray.value = await response.json();
+}
+
+async function saveItem() {
+    const body={
+        title: taskInput.value
+    }
+
+    const response = await fetch('http://localhost:5001/items',{
+        method:"POST",
+        headers:{
+            "content-type" : "application/json"
+        },
+        body:JSON.stringify(body)
+    })
+    
+}
 // const items = [1,2,3,4,5,6,7,8];
 // const nums = ['one', 'two', 'three', 'four'];
 
@@ -27,26 +46,31 @@ var itemsArray = ref([
 var itemToEdit = ref(null);
 
 
-function saveItem(){
-  // console.log(itemsArray.value);
-  // console.log(taskInput.value);
-  console.log('itemToEdit');
-  console.log(itemToEdit.value);
+// function saveItem(){
+//   // console.log(itemsArray.value);
+//   // console.log(taskInput.value);
+//   console.log('itemToEdit');
   
-  if (itemToEdit.value !== null) {
-    itemsArray.value[itemToEdit.value] = taskInput.value;
-    itemToEdit.value = null;
-  } else {
-    itemsArray.value.push(taskInput.value);
+  
+//   if (itemToEdit.value !== null) {
+//     itemsArray.value[itemToEdit.value] = taskInput.value;
+//     itemToEdit.value = null;
+//   } else {
+//     itemsArray.value.push(taskInput.value);
+//   }
+//   taskInput.value = '';
+
+//   // console.log(itemsArray.value);
+  
+// }
+
+async function deleteItem(id){
+  const response = await fetch('http://localhost:5001/items/${id}',{
+  method: "DELETE",
+
   }
-  taskInput.value = '';
-
-  // console.log(itemsArray.value);
-  
-}
-
-function deleteItem(index){
-  itemsArray.value.splice(index, 1);
+    
+  )
 }
 
 
@@ -56,7 +80,9 @@ function editItem(index) {
   // console.log(itemToEdit.value);
   
 }
-
+onMounted(()=>{
+    getItems();
+})
 
 </script>
 
@@ -77,15 +103,18 @@ function editItem(index) {
         <div style="width: 100%;" >
             
 
-            <ListItemCard>
+            <ListItemCard v-if="itemsArray.length>0">
                 <ListItem 
-                    v-for="(item, index) in itemsArray" 
-                    :key="index" 
-                    :itemName="item" 
-                    @edit="editItem(index)"
-                    @delete="deleteItem(index)"
+                    v-for="(item) in itemsArray"
+                     
+                    :key="item.id" 
+                    :itemName="item.title" 
+                    @edit="editItem(item.id)"
+                    @delete="deleteItem(item.id)"
                 />
+               
             </ListItemCard>
+            <p v-else>You have nothing in your List</p>
 
             <!-- <ListItem></ListItem> -->
             
