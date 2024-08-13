@@ -66,7 +66,7 @@ var itemToEdit = ref(null);
 
 async function deleteItem(id){
   const response = await fetch('http://localhost:5001/items/${id}',{
-  method: "DELETE",
+  method: "DELETE"
 
   }
     
